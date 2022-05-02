@@ -5,4 +5,4 @@ Steps
 3. Sell --done
 4. Confirm --done
 5. Loop until you can't trade anymore (<$5)
-6. Wait 2 hours to begin next cycle --done (7800seconds)
+6. Wait 2 hours to begin next cycle --done? (7800seconds)
