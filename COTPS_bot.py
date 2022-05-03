@@ -1,12 +1,10 @@
 import time
 from selenium import webdriver
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from decouple import config
 
 driver = webdriver.Chrome()
 driver.maximize_window()
-actions = ActionChains(driver)
 number = config('NUMBER')
 password = config('PASSWORD')
 
@@ -29,12 +27,12 @@ while True:
     time.sleep(5)
     bal = driver.find_element(By.XPATH, '//uni-view[3]/uni-view[2]/uni-view[2]')
     balance = (float(bal.get_attribute('innerHTML')))
-    print(type(balance))
     if balance < 5:
-        print("Balance less than 5 please wait")
+        print("Balance less than $5 please wait")
         time.sleep(5)
+        driver.get('https://cotps.com/#/pages/transaction/transaction')
     else:
-        print("greater than 5")
+        print("Greater than $5, beginning transactions")
         create_order = driver.find_element(By.CLASS_NAME, 'orderBtn').click()
         time.sleep(10)
         #step 3
