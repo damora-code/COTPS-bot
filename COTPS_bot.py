@@ -41,5 +41,5 @@ while True:
         sell = driver.find_element(by=By.XPATH, value='//uni-button[2]').click()
         time.sleep(10)
         #step 4
-        confirm = driver.find_element(by=By.XPATH, value='//uni-view[8]/uni-view/uni-button').click()
+        confirm = driver.find_element(by=By.XPATH, value='//uni-view[8]/uni-view/uni-view/uni-button').click()
         time.sleep(10)
