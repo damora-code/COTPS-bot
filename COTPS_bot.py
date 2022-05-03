@@ -7,8 +7,8 @@ from decouple import config
 driver = webdriver.Chrome()
 driver.maximize_window()
 actions = ActionChains(driver)
-number = '3054391830'
-password = 'Guapotrader88!'
+number = config('NUMBER')
+password = config('PASSWORD')
 
 # step 0
 driver.get('https://cotps.com/#/pages/login/login?originSource=userCenter')
