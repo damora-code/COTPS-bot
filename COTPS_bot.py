@@ -2,13 +2,13 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from decouple import config
+from timer import timer
 
 driver = webdriver.Chrome()
 driver.maximize_window()
 number = config('NUMBER')
 password = config('PASSWORD')
 
-# step 0
 driver.get('https://cotps.com/#/pages/login/login?originSource=userCenter')
 time.sleep(5)
 user_element = driver.find_element(
@@ -18,18 +18,17 @@ password_element = driver.find_element(
 time.sleep(2)
 login = driver.find_element(by=By.CLASS_NAME, value="login").click()
 
-# step 1
 time.sleep(5)
 driver.get('https://cotps.com/#/pages/transaction/transaction')
 
-#step 2
 while True:
     time.sleep(5)
     bal = driver.find_element(By.XPATH, '//uni-view[3]/uni-view[2]/uni-view[2]')
     balance = (float(bal.get_attribute('innerHTML')))
+    print(balance)
     if balance < 5:
         print("Balance less than $5 please wait")
-        time.sleep(5)
+        timer()
         driver.get('https://cotps.com/#/pages/transaction/transaction')
     else:
         print("Greater than $5, beginning transactions")
