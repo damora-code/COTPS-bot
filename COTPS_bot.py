@@ -26,7 +26,7 @@ while True:
     bal = driver.find_element(
         By.XPATH, '//uni-view[3]/uni-view[2]/uni-view[2]')
     balance = (float(bal.get_attribute('innerHTML')))
-    print(balance)
+    print("Balance: ", balance)
     if balance < 5:
         print("Balance less than $5 please wait")
         timer()
