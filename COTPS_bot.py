@@ -11,12 +11,12 @@ password = config('PASSWORD')
 
 driver.get('https://cotps.com/#/pages/login/login?originSource=userCenter')
 time.sleep(5)
-user_element = driver.find_element(
+driver.find_element(
     by=By.XPATH, value="//uni-view[5]/uni-input/div/input").send_keys(number)
-password_element = driver.find_element(
+driver.find_element(
     by=By.XPATH, value='//uni-view[7]/uni-input/div/input').send_keys(password)
 time.sleep(2)
-login = driver.find_element(by=By.CLASS_NAME, value="login").click()
+driver.find_element(by=By.CLASS_NAME, value="login").click()
 
 time.sleep(5)
 driver.get('https://cotps.com/#/pages/transaction/transaction')
