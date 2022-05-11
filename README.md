@@ -15,7 +15,7 @@
 <h3 align="center">COTPS Bot</h3>
 
   <p align="center">
-    This script is created for the sole purpose of automating the process of creating, selling and confirming transactions on COTPS. 
+    This script is created for the sole purpose of automating the process of creating, selling and confirming transactions on COTPS. Built with a timer, you can run the program and see where you are along in the cycle and when you should come back to check on your assets via the terminal window created when you run the program.
     <br />
     <a href="https://github.com/damora-code/COTPS-bot"><strong>Explore the docs »</strong></a>
     <br />
@@ -42,12 +42,9 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -59,8 +56,7 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Download this repository along with the following prequisities. Create a .env file in the root folder with your credentials (example shown below) to run the bot successfully.
 
 ### Prerequisites
 
@@ -72,6 +68,12 @@ To get a local copy up and running follow these simple example steps.
   ```
   https://www.python.org/downloads/
   ```
+  
+   <li>
+  Create a .env file to store your credentials. Format shown is exactly how it should be written, no spaces and variables must be in caps.
+  </li>
+
+  ![env_example](https://github.com/damora-code/COTPS-bot/blob/main/images/env_ex.gif "env_example")
 
   <li>
   Download Chromedriver accordingly to your version of Google Chrome on server or running device.
@@ -81,6 +83,10 @@ To get a local copy up and running follow these simple example steps.
   ```
   https://chromedriver.chromium.org/downloads
   ```
+  
+  <li>
+  Add chromedriver that was downloaded to your C:\ and Environemntal Variables Path
+  </li>
   <ol>
   
   <li>
@@ -92,46 +98,26 @@ To get a local copy up and running follow these simple example steps.
   Example:
   
   ```
-  C:\webdrivers
+  C:\test
   ```
   </ol>
+  
+  ![example](https://github.com/damora-code/COTPS-bot/blob/main/images/chromedriver_ex.gif "example")
   
   #### *To check chrome version*
   ```
   chrome://settings/help
   ```
-
+  
 ### Installation
 
+After prerequisites are ready. Move to the root folder directory via command line. Run the command below
+```
+pip install -r requirements.txt
+```
 
-
+After running the command, you will have everything needed to run the bot. Simply click the `COTPS_bot` file and the program will begin to run.
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- CONTRIBUTING -->
@@ -164,37 +150,8 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Telegram - @quefresco
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
+Project Link: [https://github.com/damora-code/COTPS-bot](https://github.com/damora-code/COTPS-bot)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
