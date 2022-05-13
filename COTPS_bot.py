@@ -6,11 +6,20 @@ from timer import timer
 
 driver = webdriver.Chrome()
 driver.maximize_window()
+country_code = config('COUNTRY')
 number = config('NUMBER')
 password = config('PASSWORD')
 
 driver.get('https://cotps.com/#/pages/login/login?originSource=userCenter')
 time.sleep(5)
+driver.find_element(
+    by=By.XPATH, value="//uni-view/uni-view[5]/uni-text").click()
+time.sleep(2)
+driver.find_element(
+    by=By.XPATH, value="//uni-view/uni-input/div/input").send_keys(country_code)
+time.sleep(3)
+driver.find_element(
+    by=By.XPATH, value="//uni-view/uni-view[1]/uni-button").click()
 driver.find_element(
     by=By.XPATH, value="//uni-view[5]/uni-input/div/input").send_keys(number)
 driver.find_element(
