@@ -3,6 +3,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from decouple import config
 from timer import timer
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 driver = webdriver.Chrome()
 driver.maximize_window()
@@ -11,27 +13,22 @@ number = config('NUMBER')
 password = config('PASSWORD')
 
 driver.get('https://cotps.com/#/pages/login/login?originSource=userCenter')
-time.sleep(5)
-driver.find_element(
-    by=By.XPATH, value="//uni-view/uni-view[5]/uni-text").click()
-time.sleep(2)
-driver.find_element(
-    by=By.XPATH, value="//uni-view/uni-input/div/input").send_keys(country_code)
-time.sleep(3)
-driver.find_element(
-    by=By.XPATH, value="//uni-view/uni-view[1]/uni-button").click()
-driver.find_element(
-    by=By.XPATH, value="//uni-view[5]/uni-input/div/input").send_keys(number)
-driver.find_element(
-    by=By.XPATH, value='//uni-view[7]/uni-input/div/input').send_keys(password)
-time.sleep(2)
-driver.find_element(by=By.CLASS_NAME, value="login").click()
-
-time.sleep(5)
+country = WebDriverWait(driver, 20).until(EC.element_to_be_clickable(
+    (By.XPATH, "//uni-view/uni-view[5]/uni-text"))).click()
+country_insert = WebDriverWait(driver, 20).until(EC.element_to_be_clickable(
+    (By.XPATH, "//uni-view/uni-input/div/input"))).send_keys(country_code)
+go_back = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+    (By.XPATH, "//uni-view/uni-view[1]/uni-button"))).click()
+username = WebDriverWait(driver, 20).until(EC.element_to_be_clickable(
+    (By.XPATH, "//uni-view[5]/uni-input/div/input"))).send_keys(number)
+password_ = WebDriverWait(driver, 20).until(EC.element_to_be_clickable(
+    (By.XPATH, "//uni-view[7]/uni-input/div/input"))).send_keys(password)
+login = WebDriverWait(driver, 20).until(
+    EC.element_to_be_clickable((By.CLASS_NAME, "login"))).click()
+time.sleep(7)
 driver.get('https://cotps.com/#/pages/transaction/transaction')
 
 while True:
-    time.sleep(5)
     bal = driver.find_element(
         By.XPATH, '//uni-view[3]/uni-view[2]/uni-view[2]')
     balance = (float(bal.get_attribute('innerHTML')))
@@ -42,13 +39,9 @@ while True:
         driver.get('https://cotps.com/#/pages/transaction/transaction')
     else:
         print("Greater than $5, beginning transactions")
-        create_order = driver.find_element(By.CLASS_NAME, 'orderBtn').click()
-        time.sleep(10)
-        # step 3
-        sell = driver.find_element(
-            by=By.XPATH, value='//uni-button[2]').click()
-        time.sleep(10)
-        # step 4
-        confirm = driver.find_element(
-            by=By.XPATH, value='//uni-view[8]/uni-view/uni-view/uni-button').click()
-        time.sleep(10)
+        create_order = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.CLASS_NAME, "orderBtn"))).click()
+        sell_order = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, "//uni-button[2]"))).click()
+        confirm_order = WebDriverWait(driver, 20).until(EC.element_to_be_clickable(
+            (By.XPATH, "//uni-view[8]/uni-view/uni-view/uni-button"))).click()
